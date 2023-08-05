@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    font-size: 3rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    color:darkcyan;
+}
+.title h1{
+    margin: 1.3rem;
+}
+.play-board{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+    width: fit-content;
+    height: fit-content;
+}
+.tile{
+    height: 10rem;
+    width: 10rem;
+    position: relative;
+    transition: 0.5s all;
+    background-color: transparent;
+    text-align: center;
+    font-size: 7rem;
+    perspective: 1000px;
+}
+.tile:hover{
+    cursor: pointer;
+}
+.tile-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.tile-front, .tile-back{
+    position: absolute;
+    width:100%;
+    height:100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.tile-inner.clicked{
+    transform: rotateY(180deg);
+}
+.tile-front {
+    background-color: aquamarine;
+    color: black;
+  }
+.tile-back {
+    background-color: darkturquoise;
+    color: white;
+    transform: rotateY(180deg);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+.result{
+    width:15rem;
+    height:10rem;
+    text-align: center;
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    margin-top: 5rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: 0.3s ease-out appear;
+    font-size: 1.3rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
+
+@keyframes appear {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+button{
+    background-color: #f44336;
+    color: azure;
+    padding: 10px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border-color: transparent;
+    transition: all 0.3s;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+button:hover{
+    background-color: azure;
+    color: #f44336;
+    border-color: #f44336;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:600px){
+    .title{
+        font-size: 2rem;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        color:darkcyan;
+    }
+    .title h1{
+        margin: 1.1rem;
+    }
+    .play-board{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 5px;
+        width: fit-content;
+        height: fit-content;
+    }
+    .tile{
+        height: 7rem;
+        width: 7rem;
+        position: relative;
+        transition: 0.5s all;
+        background-color: transparent;
+        text-align: center;
+        font-size: 5.5rem;
+        perspective: 1000px;
+    }
+}
